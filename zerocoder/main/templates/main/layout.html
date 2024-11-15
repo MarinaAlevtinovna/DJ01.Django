@@ -7,36 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <title>{% block title %}Luchik{% endblock %}</title>
+    <title>
+        {% block title %}
+            Luchik
+        {% endblock %}
+    </title>
 </head>
-<body class="bg-light">
-
+<body>
 <div class="container-fluid">
     <div class="row">
-        <aside class="col-md-3 col-lg-2 bg-dark text-white min-vh-100 p-3">
-            <div class="text-center mb-4">
-                <img src="{% static 'main/img/logo.png' %}" alt="Luchik logo" width="150" class="img-fluid">
-                <h3 class="mt-2">Luchik</h3>
-            </div>
-
-
-            {% include 'main/nav.html' %}
-
+        <aside class="col-md-3 col-lg-2">
+            <img src="{% static 'main/img/logo.png' %}" alt="Luchik logo" class="aside-img img-fluid rounded-circle">
+            <span class="aside-title">Luchik</span>
+            <nav class="nav flex-column">
+                <a class="nav-link" href="{% url 'home' %}">Главная</a>
+                <a class="nav-link" href="{% url 'page2' %}">Второстепенная</a>
+                <a class="nav-link" href="{% url 'news_home' %}">Новостная страница</a>
+            </nav>
         </aside>
 
-        <main class="col-md-9 col-lg-10 p-4">
-            <div class="content">
-                {% block content %}
-
-                {% endblock %}
-            </div>
+        <main class="col-md-9 col-lg-10">
+            {% block content %}
+            {% endblock %}
         </main>
     </div>
 </div>
 
-{% include 'main/footer.html' %}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
